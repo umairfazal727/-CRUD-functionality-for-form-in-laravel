@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use App\Models\Form;
 use Illuminate\Http\Request;
@@ -111,7 +112,11 @@ class FormController extends Controller
     public function destroy($id)
     {
         $formData = Form::find($id);
-        // dd($formData);
+        $imagePath = public_path('images/'.$formData->image);
+        if (File::exists($imagePath)) {
+            Storage::delete($imagePath);
+        }       
+        // dd('fails');
         $formData->delete();
         return back()->with('status', 'Deleted succesfully');
     }
