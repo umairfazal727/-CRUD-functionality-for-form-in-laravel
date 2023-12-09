@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Models\Form;
+use App\Models\Subscription;
+use App\Models\Package;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check()){
-            $formDataList = Form::all();
-            return view('home', compact('formDataList'));
+            $options = Package::all();
+            // dd($options);
+            return view('home', compact('options'));
         }
     }
 }

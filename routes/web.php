@@ -18,10 +18,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/upload', [App\Http\Controllers\FormController::class, 'store'])->name('upload');
-Route::post('/update', [App\Http\Controllers\FormController::class, 'update'])->name('update-form');
-Route::get('/delete/{id}', [App\Http\Controllers\FormController::class, 'destroy'])->name('delete-form');
+// Route::post('/upload', [App\Http\Controllers\TaskController::class, 'store'])->name('upload');
+// Route::post('/update', [App\Http\Controllers\TaskController::class, 'update'])->name('update-task');
+// Route::get('/delete/{id}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('delete-task');
 
 
