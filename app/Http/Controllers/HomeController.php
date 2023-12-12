@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Models\Subscription;
-use App\Models\Package;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -27,9 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::check()){
-            $options = Package::all();
-            // dd($options);
-            return view('home', compact('options'));
+            $products = Product::all();            
+            return view('frontend.index', compact('products'));
         }
+    }
+
+    public function productDetails($id)
+    {
+        $product_detail = Product::find($id);            
+        return view('frontend.product-detail', compact('product_detail'));
     }
 }

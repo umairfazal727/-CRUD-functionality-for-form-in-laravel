@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* CSS Variables */
+  --wrapper-mw: 1440px;
+  --width-nt-stretch: 1200px;
+  --padding-nt-stretch: 3rem/2;
+  --font-body: Poppins;
+  --font-head: Poppins;
+  --t4s-success-color: #428445;
+  --t4s-success-color-rgb: 66, 132, 69;
+  --t4s-warning-color: #e0b252;
+  --t4s-warning-color-rgb: 224, 178, 82;
+  --t4s-error-color: #EB001B;
+  --t4s-error-color-rgb: 235, 0, 27;
+  --t4s-light-color: #ffffff;
+  --t4s-dark-color: #222222;
+  --t4s-highlight-color: #ec0101;
+  --t4s-tooltip-background: #383838;
+  --t4s-tooltip-color: #fff;
+  --primary-sw-color: #333;
+  --primary-sw-color-rgb: 51, 51, 51;
+  --border-sw-color: #d4d4d4;
+  --secondary-sw-color: #868686;
+  --sale-price-color: #fa0000;
+  --primary-price-color: #010101;
+  --secondary-price-color: #868686;
+  --t4s-body-background: #fff;
+  --text-color: #868686;
+  --text-color-rgb: 134, 134, 134;
+  --heading-color: #000000;
+  --accent-color: #e91e63;
+  --accent-color-rgb: 233, 30, 99;
+  --accent-color-darken: #aa1145;
+  --accent-color-hover: var(--accent-color-darken);
+  --secondary-color: #000000;
+  --secondary-color-rgb: 0, 0, 0;
+  --link-color: #868686;
+  --link-color-hover: #ff8421;
+  --border-color: #e6e6e6;
+  --border-color-rgb: 230, 230, 230;
+  --button-background: #000;
+  --button-color: #fff;
+  --button-background-hover: #e91e63;
+  --button-color-hover: #fff;
+  /* border radius */
+  --btn-radius: 50px;
+  --btn-radius2: 40px;
+  --other-radius: 0px;
+  /* badges color */
+  --sale-badge-primary: #e33131;
+  --sale-badge-secondary: #fff;
+  --new-badge-primary: #109533;
+  --new-badge-secondary: #fff;
+  --preorder-badge-primary: #0774d7;
+  --preorder-badge-secondary: #fff;
+  --soldout-badge-primary: #999999;
+  --soldout-badge-secondary: #fff;
+  --custom-badge-primary: #fa0000;
+  --custom-badge-secondary: #fff;
+  /* Shopify related variables */
+  --payment-terms-background-color: ;
+  --lz-background: #f5f5f5;
+  --lz-img: url("//negativeapparel.com/cdn/shop/t/69/assets/t4s_loader.svg?v=49449260427922311161691410725");
+  --lz-img-cus: url("//negativeapparel.com/cdn/shop/files/APP_NOTIF_ICON_LOGO-01.png?v=1665759946&width=108");
+  --lz-size-cus: 60px;
+
+  /* transition */
+  --head-transition: 0.3s ease-in-out;
+  --img-transition: 0.8s ease;
+  --scale: 1.2;
+}
+
+*{
+  font-family: 'Poppins', sans-serif !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* utility */
+h6 a:hover span {
+  color: var(--link-color-hover);
+  transition: var(--head-transition);
+}
+
+
+
+
+/* navbar */
+#navbar-nav .nav-link {
+  position: relative;
+  padding-bottom: 5px;
+  /* Add space between text and underline */
+}
+
+#navbar-nav .nav-link.active {
+  color: var(--link-color-hover);
+  border-bottom: 2px solid var(--link-color-hover);
+  /* Add a colored border as the underline */
+  padding-bottom: 3px;
+  /* Adjust the padding as needed */
+}
+
+.header-bottom a svg:hover {
+  transform: scale(1.2);
+  transition: var(--head-transition);
+}
+
+
+/* top-cat */
+.top-cat ul li a:hover{
+  transition: var(--head-transition);
+  color: var(--link-color-hover) !important;
+  
+}
+
+
+/* slider */
+/* Adjust the height of the carousel */
+.carousel-inner {
+  height: 500px;
+}
+
+/* Optionally adjust the height of individual carousel items */
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* owl carousel */
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  font-size: 40px !important;
+}
+
+.owl-prev {
+  left: 0;
+}
+
+.owl-next {
+  right: 0;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  color: var(--button-background-hover) !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.best-seller .product-card .product-card-img img {
+  height: 20em !important;
+  max-height: 20em !important;
+  border-radius: 40px !important;
+}
+
+.line {
+  display: inline-block;
+  width: 40%;
+  height: 1px;
+  background-color: #e6e6e6;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+
+/* trending */
+.trending .product-card .product-card-img img {
+  height: 25em !important;
+  max-height: 25em !important;
+}
+
+
+/* cat */
+.cat img {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+.cat a,
+.dress a {
+  border: 0;
+}
+
+.cat a:hover,
+.dress a:hover {
+  background-color: var(--link-color-hover);
+  transition: var(--head-transition);
+}
+
+/* join */
+#container {
+  margin: 0 auto;
+  width: 100%;
+
+}
+
+#container form {
+  position: relative;
+  display: block;
+  height: 62px;
+  border-radius: calc(0.5 * 70px);
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+#container form input {
+  line-height: 64px;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-size: 0.7rem;
+  font-weight: 300;
+  background: #eee;
+  letter-spacing: 0.02em;
+}
+
+#container form input:not([type="submit"]) {
+  width: 100%;
+  display: block;
+  padding: 0 150px 0 30px;
+}
+
+#container form input:not([type="email"]) {
+  position: absolute;
+  height: calc(70px - 20px);
+  line-height: calc(70px - 20px);
+  top: 6px;
+  right: 10px;
+  border-radius: calc(0.5 * (70px - 20px));
+  padding: 0 25px;
+  background: var(--button-background);
+  color: white;
+  cursor: pointer;
+}
+
+#container form input:not([type="email"]):hover {
+  background: var(--button-background-hover);
+  transition: var(--head-transition);
+}
+
+#container form input:focus {
+  outline: none;
+  background: white;
+}
+
+
+
+/* service */
+.service a span {
+  font-size: 13px !important;
+  color: #868686;
+}
+
+.service a:hover span {
+  color: var(--link-color-hover);
+  transition: var(--head-transition);
+}
+.service i{
+  font-size: 42px;
+}
+
+/* footer */
+/* widgets */
+.widgets {
+  background-color: black !important;
+}
+
+.widgets ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  padding-top: 10px;
+}
+.widgets ul li:hover{
+  transition: var(--head-transition);
+  transform: translateX(10px) !important;
+}
+.widgets ul li {
+  position: relative;
+}
+
+.widgets ul li a {
+  display: inline-block;
+  position: relative;
+  padding-left: 10px; 
+}
+
+.widgets ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 4px; 
+  height: 80%; 
+  background-color: var(--link-color-hover); 
+  opacity: 0; 
+  transition: opacity 0.3s; 
+}
+
+.widgets ul li a:hover::before {
+  opacity: 1; 
+}
+
+/* info */
+.info a{
+  font-size: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  color: black;
+  background-color: #f2f3f5;
+  border-radius: 50%;
+  margin: 0.25em;
+}
+
+.info a:hover{
+  background-color: var(--accent-color);
+  color: white;
+  transition: var(--head-transition);
+  transform: scale(1.1);
+}
+.info .text-secondary{
+  font-size: 13px;
+}
+
+
+
+/* mobile menu */
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  overflow-x: hidden;
+  color: #ffffff;
+  z-index: 110;
+}
+
+.menu nav {
+  position: relative; /* Add position relative */
+  bottom: 0; /* Add bottom 0 */
+  background: var(--accent-color);
+  padding: 14px;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-width: 30%;
+  box-shadow: -13px 25px 17px rgba(0, 0, 0, 0.01), -6px 11px 13px rgba(0, 0, 0, 0.02), -1px 3px 7px rgba(0, 0, 0, 0.02), 0px 0px 0px rgba(0, 0, 0, 0.02);
+}
+
+
+.menu button {
+  border: none;
+  background: none;
+}
+.menu nav svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+.menu nav button {
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  width: 36px;
+  transition: 0.3s;
+}
+.menu nav button svg {
+  flex-shrink: 0;
+}
+.menu nav button span {
+  white-space: nowrap;
+  color: #ffffff;
+  font-weight: 500;
+}
+.menu nav button:hover {
+  background: #ffffff;
+}
+.menu nav button:hover svg,
+.menu nav button:hover span {
+  color: var(--accent-color);
+}
+.menu nav button.active {
+  flex-grow: 1;
+  background: #ffffff;
+}
+.menu nav button.active svg,
+.menu nav button.active span {
+  color: var(--accent-color);
+}
+
+
+
+
+
+
+
+
+
+/* reuseable */
+/* btn view all */
+.view-all-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.view-all-link i.fa-arrow-right {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.view-all-link:hover i.fa-arrow-right {
+  transform: translateX(6px);
+}
+
+.view-all-link:hover {
+  background-color: var(--button-background-hover);
+  transition: var(--head-transition);
+}
+
+
+/* product image */
+/* .item {
+  position: relative;
+} */
+
+.image-container {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+}
+
+.image-container img {
+  transition: transform 0.8s ease-in-out;
+}
+
+.image-container:hover img {
+  transform: scale(var(--scale));
+  transition: var(--img-transition);
+}
+
+
+/* price */
+.price .current {
+  font-size: calc(.5em + 1vw);
+  color: var(--primary-color);
+  margin-right: 0.25em;
+}
+
+.price .normal {
+  color: var(--light-text-color);
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+
+/* cart button */
+.cart{
+  position: relative;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px 15px;
+  z-index: 100;
+  bottom: 55px;
+}
+
+.cart:hover{
+  background-color: var(--accent-color);
+  transition: var(--head-transition);
+}
+.cart i {
+  transition: var(--img-transition);
+}
+
+.cart:hover i {
+  animation: bounce 2s infinite; 
+  transition: none; 
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+
+
+
+
+
+
+/* responsive */
+@media (max-width: 830px) {
+  .line {
+    width: 20%;
+  }
+
+  .cat a {
+    font-size: 10px !important;
+    padding: 7px 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fluid .owl-carousel .item img {
+    max-height: 13em !important;
+  }
+
+  .carousel .carousel-inner .carousel-item img {
+    height: 30rem;
+  }
+
+  .price .current {
+    font-size: 1.25em;
+  }
+}

@@ -13,13 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::post('/upload', [App\Http\Controllers\TaskController::class, 'store'])->name('upload');
+Route::get('/product-details/{id}', [App\Http\Controllers\HomeController::class, 'productDetails'])->name('product-details');
 // Route::post('/update', [App\Http\Controllers\TaskController::class, 'update'])->name('update-task');
 // Route::get('/delete/{id}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('delete-task');
 
