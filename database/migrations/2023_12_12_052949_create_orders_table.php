@@ -14,22 +14,25 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('product_id');
             $table->integer('amount');
             $table->integer('quantity');
+            $table->integer('sub_total');
             $table->enum('payment_method',['cod','paypal'])->default('cod');
             $table->enum('payment_status',['paid','unpaid'])->default('unpaid');
-            $table->enum('status',['new','process','delivered','cancel'])->default('new');
+            $table->enum('status',['new','process','confirm','delivered','cancel'])->default('new');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('country')->nullable();
             $table->string('post_code')->nullable();
-            $table->text('address1');
+            $table->text('address1')->nullable();
             $table->text('address2')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascad');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascad');
         });
     }
 

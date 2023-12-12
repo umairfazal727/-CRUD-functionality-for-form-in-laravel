@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="meta description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="icon" href="assets/img/icon.png" type="png">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -135,6 +137,11 @@
 </head>
 
 <body class="antialiased">
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
@@ -286,7 +293,7 @@
                                             fill="black" />
                                     </svg>
                                 </a>
-                                <a class="header-action-item header-person ms-4 d-none d-lg-block" href="login.html">
+                                <a class="header-action-item header-person ms-4 d-none d-lg-block" href="{{route('profile')}}">
                                     <svg class="icon icon-person" width="26" height="26" viewBox="0 0 26 26"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -892,10 +899,10 @@
     </script>
 
     <!-- custom script -->
-    <script src="{{ URL::asset('js/home.js')}}"></script>
+    <script src="{{ URL::asset('js/home.js') }}"></script>
     <!-- all js -->
-    <script src="{{ URL::asset('js/vendor.js')}}"></script>
-    <script src="{{ URL::asset('js/main.js')}}"></script>
+    <script src="{{ URL::asset('js/vendor.js') }}"></script>
+    <script src="{{ URL::asset('js/main.js') }}"></script>
 
     <script>
         // Function to hide the preloader and show the content

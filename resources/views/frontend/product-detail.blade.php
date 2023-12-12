@@ -249,7 +249,7 @@
                                 <div class="quantity d-flex align-items-center justify-content-between">
                                     <button class="qty-btn dec-qty"><img src="{{ URL::asset('/images/minus.svg') }}"
                                             alt="minus"></button>
-                                    <input class="qty-input" type="number" name="qty" value="1"
+                                    <input class="qty-input" id="product_qty" type="number" name="qty" value="1"
                                         min="0" max="{{$product_detail->quantity}}">
                                     <button class="qty-btn inc-qty"><img src="{{ URL::asset('/images/plus.svg') }}"
                                             alt="plus"></button>
@@ -266,7 +266,7 @@
                                     <span class="message-popup-text ms-2">Message</span>
                                 </div>
                             </div>
-
+                            <input type="hidden" id="product_id" value="{{$product_detail->id}}" >
                             <form class="product-form">
                                 <div class="product-form-buttons d-flex align-items-center justify-content-between mt-4">
                                     <button type="submit" class="position-relative btn-atc btn-add-to-cart ">ADD TO
@@ -281,7 +281,7 @@
                                     </a>
                                 </div>
                                 <div class="buy-it-now-btn mt-2">
-                                    <a href="" class="position-relative btn-atc btn-buyit-now">BUY IT
+                                    <a id="saveOrderBtn" class="position-relative btn-atc btn-buyit-now">BUY IT
                                         NOW</a>
                                 </div>
                             </form>
@@ -671,5 +671,38 @@
             </div>
         </div>
         <!-- product tab end -->
-    </main>
+    </main><!-- Include jQuery (you can use a CDN or download and host it locally) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#saveOrderBtn').on('click', function() {
+                var input1Value = $('#product_id').val();
+                var input2Value = $('#product_qty').val();
+    
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '{{route('save-order')}}', 
+                    method: 'POST',
+                    data: {
+                        id: input1Value,
+                        qty: input2Value,
+                    },
+                    success: function(response) {
+                        if (response.redirect) {
+                            window.location.href = response.redirect;
+                        } else {
+                            alert('You Cant Buy This Product')
+                        }
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+    
 @endsection
