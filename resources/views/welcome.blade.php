@@ -277,7 +277,7 @@
                         <div class="col-lg-4 col-md-4 col-4">
                             <div class="header-logo">
                                 <a href="index.html" class="logo-main">
-                                    <img src="assets/img/logo.avif" loading="lazy" alt="logo">
+                                    <img src="{{ URL::asset('/images/logo.avif')}}" loading="lazy" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -540,7 +540,7 @@
         <!-- info -->
         <div class="container info text-center mt-4 my-5">
             <div class="logo">
-                <img src="assets/img/logo.avif" alt="logo" class="img-fluid">
+                <img src="{{ URL::asset('/images/logo.avif')}}" alt="logo" class="img-fluid">
             </div>
             <div class="socials my-3 d-flex justify-content-center">
                 <a href=""><i class="ri-twitter-line"></i></a>
