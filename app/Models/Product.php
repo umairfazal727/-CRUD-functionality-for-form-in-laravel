@@ -16,4 +16,14 @@ class Product extends Model
         'quantity',
         'price',
     ];
+
+    public function productOrders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrdersAttribute()
+    {
+        return $this->productOrders()->get();
+    }
 }

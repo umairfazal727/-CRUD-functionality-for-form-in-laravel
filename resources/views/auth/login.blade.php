@@ -70,4 +70,40 @@
         </div>
     </div>
 </div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login And API Information') }}
+                <h4>Please run locally before hit the api and if u are using laragon and xampp u can use local path for api working</h4>
+                </div>         
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>http://localhost:8000/api/products</td>
+                            <td>Get All products </td>
+                          </tr>
+                          <tr>
+                            <td>http://localhost:8000/api/products/{id}</td>
+                            <td>Get Single products</td>
+                          </tr>
+                          <tr>
+                            <td>http://localhost:8000/api/products/{id}/orders</td>
+                            <td>Get Orders of the single products</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
