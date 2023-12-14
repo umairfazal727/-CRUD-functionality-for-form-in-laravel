@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,8 @@ Route::post('/confirm-order', [HomeController::class, 'confirmOrder'])->name('co
 Route::get('/profile', [HomeController::class, 'index'])->middleware('checkUserRole')->name('profile');
 Route::get('/buyer-dashboard', [HomeController::class, 'buyerDashboard'])->name('buyer-dashboard');
 Route::get('/seller-dashboard', [HomeController::class, 'sellerDashboard'])->name('seller-dashboard');
+
+
+Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+Route::post('/products/update', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/destroy/{id}', [ProductController::class, 'destroy'])->name('products.destroy');

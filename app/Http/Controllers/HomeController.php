@@ -76,19 +76,21 @@ class HomeController extends Controller
     }
 
     public function buyerDashboard(){
-        if (auth()->check() && auth()->user()->role == 'buyer') {            
-            $products= Product::where('user_id', auth()->user()->id)->get();
+        if (auth()->check() && auth()->user()->role == 'buyer') {     
+            $products= Order::with('product')->where('user_id', auth()->user()->id)->get();       
             return view('frontend.buyer-dashboard', compact('products'));
         } else {
-            return redirect()->route('/home');
+            return redirect()->route('home');
         }
     }
     public function sellerDashboard(){
         if (auth()->check() && auth()->user()->role == 'seller') {
-            $products= Order::with('product')->where('user_id', auth()->user()->id)->get();
-            return view('frontend.seller-dashboard', compact('products'));
+            $products= Product::where('user_id', auth()->user()->id)->paginate(10);
+            $productIds = $products->pluck('id');
+            $orders= Order::whereIn('product_id', $productIds)->get();
+            return view('frontend.seller-dashboard', compact('products','orders'));
         } else {
-            return redirect()->route('/home');
+            return redirect()->route('home');
         }
     }
 }

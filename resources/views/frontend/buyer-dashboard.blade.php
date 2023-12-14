@@ -33,33 +33,33 @@
     <div class="container">
         <table class="table">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Action</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Sub Total</th>
+                    <th scope="col">Status</th>
+                </tr>
             </thead>
             <tbody>
                 @forelse ($products as $item)
                     <tr>
-                        <th scope="row">{{$item->name}}</th>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->price}}</td>
-                        <td>{{$item->quantity}}</td>
-                        <td>
-                            <a href="#" type="button" class="btn btn-primary">Edit</a>
-                            <a href="#" type="button" class="btn btn-dnger">Delete</a>
-                        </td>
+                        <th scope="row">{{ $item->name }}</th>
+                        <td>{{ $item->product->name }}</td>
+                        <td>{{ $item->quantity }}</td>
+                        <td>{{ $item->amount }}</td>
+                        <td>{{ $item->sub_total }}</td>
+                        <td>{{ $item->status }}</td>
                     </tr>
                 @empty
                     <tr>
-                        <th colspan="5">Nothing To Preview</th>
+                        <th class="text-center" colspan="5">Nothing To Preview</th>
                     </tr>
                 @endforelse
 
             </tbody>
         </table>
+
     </div>
 @endsection

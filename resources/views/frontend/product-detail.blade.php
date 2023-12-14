@@ -671,9 +671,8 @@
             </div>
         </div>
         <!-- product tab end -->
-    </main><!-- Include jQuery (you can use a CDN or download and host it locally) -->
+    </main>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
     <script>
         $(document).ready(function() {
             $('#saveOrderBtn').on('click', function() {
